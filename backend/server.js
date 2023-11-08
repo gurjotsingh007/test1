@@ -22,10 +22,12 @@ async function startServer() {
         res.send('API is running....');
       });
                                                               
-      const server = app.listen(process.env.PORT, process.env.HOST, () => {
+      
+    }
+
+    const server = app.listen(process.env.PORT, process.env.HOST, () => {
         console.log(`Server is running on port ${process.env.PORT}`);
       });
-    }
 
     // Handling unhandled exceptions
     process.on('uncaughtException', (err) => {
