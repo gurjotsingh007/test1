@@ -12,16 +12,16 @@ async function startServer() {
 
     const __dirname = path.resolve();
 
-    if (1===1) {
-      app.use(express.static(path.join(__dirname, '/frontend/build')));
+    // if (1===1) {
+    //   app.use(express.static(path.join(__dirname, '/frontend/build')));
 
-      app.get('*', (req, res) =>
-        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')
-      ));
-    } else {
+    //   app.get('*', (req, res) =>
+    //     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')
+    //   ));
+    // } else {
       app.get('/', (req, res) => {
         res.send('API is running....');
-      });
+      }
 
 
       const server = app.listen(process.env.PORT, process.env.HOST, () => {
