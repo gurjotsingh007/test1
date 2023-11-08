@@ -13,7 +13,7 @@ const About = () => {
           </div>
           <div className="col-md-6 my-5">
             <p className="about-text">
-              Welcome to <strong>Your Website Name</strong>! We are a passionate team dedicated to supporting students in their educational journey.
+              Welcome to <strong>Gurjot's Website</strong>! We are a passionate team dedicated to supporting students in their educational journey.
             </p>
             <p className="about-text">
               Our mission is to provide resources, guidance, and expert assistance to help students excel in their studies and achieve academic success in a variety of subjects.

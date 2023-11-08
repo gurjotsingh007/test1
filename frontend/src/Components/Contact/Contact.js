@@ -10,18 +10,22 @@ function Contact() {
     const [number, setNumber] = useState("");
     const [message, setMessage] = useState("");
     const [isLoading, setIsloading] = useState(false);
-    console.log(name, email, number, message);
     function handleSubmit(event){
         event.preventDefault();
+        setIsloading(true);
         Axios.post(`api/g1/submit`, {
             name,email,number,message
-        },)
+        })
         .then(response => {
             setIsloading(false);
             toast.success("Form Submitted Successfully",{
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
             })
+            setEmail("");
+            setName("");
+            setNumber("");
+            setMessage("");
         })
         .catch(error => {
             setIsloading(false);

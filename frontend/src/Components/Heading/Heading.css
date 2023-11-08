@@ -18,3 +18,9 @@
 .navbar{
   width: 99.2vw;
 }
+.navbar-brand{
+  color: #ffffff;
+}
+.navbar-brand:hover{
+  color: rgb(0, 183, 255);
+}
