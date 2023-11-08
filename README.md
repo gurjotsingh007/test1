@@ -25,13 +25,17 @@ Sign Up / Login: Secure user authentication and registration
 
 
 
-
-
 Screenshots for MongoDB Atlas where data is stored
+users stored in mongoDB
+![users](https://github.com/gurjotsingh007/test1/assets/101056456/9a6bcdac-2213-4174-82d6-a30c6571b65f)
+
+contact us form information in atlas
+
+<img width="1440" alt="message" src="https://github.com/gurjotsingh007/Ecommerce/assets/101056456/4a35f578-d218-4ac9-81c2-15c342bb48b7">
 
 
-
-
+hosted on cyclic.sh
+![uploaded](https://github.com/gurjotsingh007/Ecommerce/assets/101056456/c6968e7e-ee86-477e-a0a6-824144191825)
 
 
 github Repo -> https://github.com/gurjotsingh007/test1
