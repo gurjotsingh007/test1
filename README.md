@@ -14,9 +14,6 @@ Landing Page: A welcoming landing page introducing users to your platform and se
 
 
 
-About Us: Learn more about our mission, vision, and the team behind the project.
-
-
 Contact Us: Get in touch with us for any questions or support you might need.
 
 
