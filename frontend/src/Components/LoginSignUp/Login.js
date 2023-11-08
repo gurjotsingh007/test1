@@ -36,7 +36,7 @@ function Signin() {
 
   return isLoading === true? 
     <div className="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
+        <span class="sr-only"></span>
     </div> :(
     <div className='signup'>
         <ToastContainer />
