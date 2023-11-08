@@ -13,7 +13,7 @@ const Logout = () => {
         if(!token){
             navigate("/login");
         }
-    }, []);
+    },[]);
     function logoutUser(){
         Axios.get(`/api/g1/logout`)
         .then(response => {

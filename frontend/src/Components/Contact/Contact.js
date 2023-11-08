@@ -1,7 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Contact.css"
+import Axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 function Contact() {
-  return (
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [number, setNumber] = useState("");
+    const [message, setMessage] = useState("");
+    const [isLoading, setIsloading] = useState(false);
+    console.log(name, email, number, message);
+    function handleSubmit(event){
+        event.preventDefault();
+        Axios.post(`api/g1/submit`, {
+            name,email,number,message
+        },)
+        .then(response => {
+            setIsloading(false);
+            toast.success("Form Submitted Successfully",{
+                position: toast.POSITION.TOP_CENTER,
+                autoClose:1300
+            })
+        })
+        .catch(error => {
+            setIsloading(false);
+            toast.error("OPPS!! Server requests limit reached",{
+                position: toast.POSITION.TOP_CENTER,
+                autoClose:1300
+            })
+        });
+
+    }
+  return isLoading === true? 
+  <div className="spinner-border" role="status">
+      <span class="sr-only"></span>
+  </div> :(
     <>
       <div class='container body contact-us'>
             <div class='container-fluid'>
@@ -15,12 +49,46 @@ function Contact() {
                                                 <div class="contact_form_inner">
                                                     <div class="contact_field">
                                                         <h3 class="gh1">Contact Us</h3>
-                                                        <form action="https://formsubmit.co/sgurjot0001@yahoo.com" method="POST">
-                                                        <input type="text" class="form-control form-group" placeholder="Name" required/>
-                                                        <input type="email" class="form-control form-group" placeholder="Email" required/>
-                                                        <input type="number" class="form-control form-group" placeholder="Phone Number" required/>
-                                                        <textarea style={{height:"8rem"}} class="form-control form-group" placeholder="Message" required></textarea>
-                                                        <button class="contact_form_submit" type='submit'>Send</button>
+                                                        <form onSubmit={handleSubmit}>
+                                                        <input
+                                                            type="text"
+                                                            class="form-control form-group"
+                                                            placeholder="Name"
+                                                            required
+                                                            onChange={(e) => {
+                                                            setName(e.target.value);
+                                                            }}
+                                                        />
+                                                        <input
+                                                            type="email"
+                                                            class="form-control form-group"
+                                                            placeholder="Email"
+                                                            required
+                                                            onChange={(e) => {
+                                                            setEmail(e.target.value);
+                                                            }}
+                                                        />
+                                                        <input
+                                                            type="number"
+                                                            class="form-control form-group"
+                                                            placeholder="Phone Number"
+                                                            required
+                                                            onChange={(e) => {
+                                                            setNumber(e.target.value);
+                                                            }}
+                                                        />
+                                                        <textarea
+                                                            style={{ height: "8rem" }}
+                                                            class="form-control form-group"
+                                                            placeholder="Message"
+                                                            required
+                                                            onChange={(e) => {
+                                                            setMessage(e.target.value);
+                                                            }}
+                                                        ></textarea>
+                                                        <button class="contact_form_submit" type="submit">
+                                                            Send
+                                                        </button>
                                                         </form>
                                                     </div>
                                                 </div>

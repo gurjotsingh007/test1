@@ -20,9 +20,7 @@ async function startServer() {
     } else {
       app.get('/', (req, res) => {
         res.send('API is running....');
-      });
-                                                              
-      
+      });      
     }
 
     const server = app.listen(process.env.PORT, process.env.HOST, () => {
