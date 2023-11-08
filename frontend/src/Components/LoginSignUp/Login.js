@@ -21,6 +21,11 @@ function Signin() {
         .then(response => {
             console.log(response);
             setIsloading(false);
+            localStorage.setItem('token',response.data.token);
+            toast.success("Your are logged out",{
+                position: toast.POSITION.TOP_CENTER,
+                autoClose:1300
+            })
             navigate('/logout');
         })
         .catch(error => {

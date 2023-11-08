@@ -24,7 +24,7 @@ function Signup() {
         .then(response => {
             // Handle success.
             console.log('Well done!');
-            toast.success("Check your email for confimation", {
+            toast.success("User us successfully Registered", {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
             });
