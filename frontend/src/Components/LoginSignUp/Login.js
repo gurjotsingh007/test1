@@ -9,20 +9,23 @@ function Signin() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [isLoading, setIsloading] = useState(false);
     
     function handleSubmit(event){
         event.preventDefault();
+        setIsloading(true);
         Axios.post(`api/g1/login`, {
             email: email,
             password: password,
         },)
         .then(response => {
             console.log(response);
+            setIsloading(false);
             navigate('/logout');
         })
         .catch(error => {
             // Handle error.
+            setIsloading(false);
             toast.error("Your email/password is incorrect!",{
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
@@ -31,7 +34,10 @@ function Signin() {
         });
     }
 
-  return (
+  return isLoading === true? 
+    <div className="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div> :(
     <div className='signup'>
         <ToastContainer />
         <section class="vh-100">
