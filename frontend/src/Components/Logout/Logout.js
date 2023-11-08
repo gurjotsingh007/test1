@@ -7,6 +7,13 @@ import {useState, useEffect } from "react";
 const Logout = () => {
     const navigate = useNavigate();
     const [isLogout, setIsLogout] = useState(false);
+    let token = null;
+    useEffect(() => {
+        let token = localStorage.getItem("token");
+        if(!token){
+            navigate("/login");
+        }
+    }, []);
     function logoutUser(){
         Axios.get(`/api/g1/logout`)
         .then(response => {
@@ -14,16 +21,15 @@ const Logout = () => {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
             })
-            localStorage.removeItem('token');
+            localStorage.removeItem("token");
             setIsLogout(true);
         })
         .catch(error => {
             // Handle error.
-            toast.error("Your email/password is incorrect!",{
+            toast.error("Cyclic Sever Error!!!!",{
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
             })
-            console.log('An error occurred:', error.response);
         });
     }
 
@@ -33,6 +39,7 @@ const Logout = () => {
     return (
         <div className="logout-user">
             <ToastContainer />
+            <h1>You are Successfully Logged In</h1>
             <button onClick={()=>(logoutUser())} type="button" class="btn btn-outline-success">Log Out</button>
         </div>
     )

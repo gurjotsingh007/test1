@@ -23,14 +23,12 @@ function Signup() {
         })
         .then(response => {
             // Handle success.
-            console.log('Well done!');
             toast.success("User us successfully Registered", {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
             });
             setIsloading(false);
             document.getElementById("signup-form").reset();
-            console.log('User token', response);
         })
         .catch(error => {
             // Handle error.
@@ -40,8 +38,6 @@ function Signup() {
             })
             setIsloading(false);
             document.getElementById("signup-form").reset();
-            console.log('An error occurred:', error.message);
-            console.log('An error occurred:', error);
         });
     }
 

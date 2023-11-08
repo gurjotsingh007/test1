@@ -19,7 +19,6 @@ function Signin() {
             password: password,
         },)
         .then(response => {
-            console.log(response);
             setIsloading(false);
             localStorage.setItem('token',response.data.token);
             toast.success("Your are logged out",{
@@ -35,7 +34,6 @@ function Signin() {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
             })
-            console.log('An error occurred:', error.response);
         });
     }
 

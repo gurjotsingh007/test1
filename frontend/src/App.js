@@ -8,13 +8,7 @@ import Contact from './Components/Contact/Contact';
 import Login from './Components/LoginSignUp/Login';
 import Signup from './Components/LoginSignUp/SignUp';
 import Logout from './Components/Logout/Logout';
-import { useEffect } from 'react';
 function App() {
-  let token = null;
-  useEffect(() => {
-    token = localStorage.getItem('token');
-    console.log("useEffect called");
-  },[])
   return (
     <Router>
       <>
@@ -25,9 +19,7 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/signUp" element={<Signup/>} />
-        {token!==null &&
         <Route path="/logout" element={<Logout/>} />
-        }
       </Routes>
       <Footer/>
       </>
