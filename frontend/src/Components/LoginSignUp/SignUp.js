@@ -11,9 +11,10 @@ function Signup() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-
+    const [isLoading, setIsloading] = useState(false);
     function handleSubmit(event){
         event.preventDefault();
+        setIsloading(true);
         //for registering users ------------
         Axios.post(`/api/g1/register`, {
             name: username,
@@ -27,9 +28,9 @@ function Signup() {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
             });
+            setIsloading(false);
             document.getElementById("signup-form").reset();
-            console.log('User profile', response.data.user);
-            console.log('User token', response.data.jwt);
+            console.log('User token', response);
         })
         .catch(error => {
             // Handle error.
@@ -37,13 +38,17 @@ function Signup() {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose:1300
             })
+            setIsloading(false);
             document.getElementById("signup-form").reset();
             console.log('An error occurred:', error.message);
             console.log('An error occurred:', error);
         });
     }
 
-  return (
+  return  isLoading === true? 
+  <div className="spinner-border" role="status">
+      <span class="sr-only"></span>
+  </div> :(
     <div className='signup'>
         <section class="vh-100">
         <ToastContainer />
